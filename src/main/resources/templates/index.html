@@ -2,49 +2,47 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="ja">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link th:href="@{/css/content.css}" rel="stylesheet">
+    <link th:href="@{/css/content.min.css}" rel="stylesheet">
     <title>COCOA JSON Parser</title>
 </head>
 <body>
 <div class="container">
     <div class="inline-contents" id="title">
         <h1>COCOA JSON Parser</h1>
-        <p>COCOAから取得したJSONデータ(exposure_data.json)を読み込み、解析するツールです。</p>
     </div>
     <div class="inline-contents" id="body">
         <form class="request-form" th:action="@{/}" method="post">
-            <textarea name="json" th:text="${json}" placeholder="ここにexposure_data.jsonの中身を貼り付けてください。"></textarea>
+            <textarea name="json" th:text="${json}" placeholder="COCOAから取得したexposure_data.jsonを貼り付けてください。"></textarea>
             <input type="submit" value="解析">
         </form>
 
         <div class="result">
             <div class="menu-parts">
                 <h2>解析結果</h2>
-                <p id="resultTable">ここに解析結果が表示されます。</p>
+                <p id="result-table">ここに解析結果が表示されます。</p>
             </div>
         </div>
 
         <div class="explanation">
             <div class="menu-parts">
-                <h2>利用する上での注意事項</h2>
+                <h2>注意事項</h2>
                 <ul>
-                    <li>有志で作成したツールであり、最低限の動作確認しか行っていないため、ご利用は自己責任でお願いいたします。</li>
-                    <li>COCOAはリスクスコアや接触時間、最小/最大dbなどの条件を複合的に判断して通知を飛ばしているものと考えられます。<br>
-                        そのため、データによって長時間の接触や大きな値のリスクスコアが出力される場合がありますが、必ずしもリスクが大きいとは限りません。
-                    </li>
-                    <li>表示されるデータは最大14日前までのものです。それ以前のデータは出力されませんのでご注意ください。</li>
+                    <li>有志で作成したツールです。ご利用は自己責任でお願いいたします。</li>
+                    <li>解析結果はあくまで参考程度に留めてください。COCOAはこれらの数値を総合的に判断し、リスクが高い場合にのみ通知しています。</li>
+                    <li>表示されるデータは最大14日前までのものです。それ以前のデータは出力されません。</li>
                 </ul>
             </div>
 
             <div class="menu-parts">
                 <h2>解析結果の説明</h2>
                 <ul>
-                    <li>接触回数: 陽性登録者のデバイスとの接触が記録された回数</li>
-                    <li>リスクスコア: COCOAで算出されたリスクに関するスコア</li>
-                    <li>接触時間: 陽性登録者のデバイスとの接触が記録されていた時間</li>
-                    <li>最小/最大db: 陽性登録者のデバイスとの通信状況(より近くにいた場合にdb値が高くなる傾向)</li>
+                    <li>接触数: 接触した陽性者の人数</li>
+                    <li>スコア: COCOAで算出されたリスク数値</li>
+                    <li>接触時間: 陽性者デバイスとの接触時間</li>
+                    <li>最小/最大db: 陽性者デバイスとの通信状況</li>
                 </ul>
             </div>
 
@@ -67,13 +65,13 @@
         </div>
     </div>
 
-    <input type="hidden" id="resultData" th:value="${result}">
+    <input type="hidden" id="result-data" th:value="${result}">
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-<script th:src="@{/js/table.js}"></script>
+<script th:src="@{/js/table.min.js}"></script>
 
 </body>
 </html>
