@@ -1,5 +1,7 @@
 # COCOA JSON Parser
 
+※COCOA終了によりお役御免になっちゃいました。
+
 COCOAから取得したJSONデータ(exposure_data.json)を読み込み、解析するツール
 
 ### Spec
