@@ -10,7 +10,7 @@ COCOAから取得したJSONデータ(exposure_data.json)を読み込み、解析
 Java 11が使えれば、以下でビルドしてlocalhostで立ち上げられます。
 ```
 # Get source
-git clone https://github.com/chag-sh/cocoa-json-parser.git
+git clone https://github.com/s-chag11/cocoa-json-parser.git
 cd cocoa-json-parser
 
 # Build
